@@ -29,7 +29,7 @@ DataSource 正常配置即可；
 ```xml
      <bean id="jda" class="com.tsoft.base.database.jda.JdbcDaoImpl">
 		<property name="dataSource" ref="dataSource" />
-		<property name="dialect" value="com.tsoft.base.database.jda.dialect.MySQLDialect" />
+		<property name="dialect" value="com.tsoft.core.database.dialect.MySQLDialect" />
 		<property name="sqlMappingFiles">
 			<list>
 				<value>/config/sql/sql-mapping.xml</value>
