@@ -7,9 +7,6 @@ package com.tsoft.core.database.dialect;
  */
 public class GenericDialect extends Dialect {
 
-    /* (non-Javadoc)
-     * @see com.networkbench.base.database.jda.dialect.Dialect#getDialectName()
-     */
     public String getDialectName() {
         return "Unkown";
     }

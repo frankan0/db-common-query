@@ -63,7 +63,7 @@ public class JdbcDaoImpl extends AbstractJdbcDao implements JDA {
 	}
 
 	/* (non-Javadoc)
-         * @see com.xiangshang360.database.jda.JDA#find(java.lang.String, java.lang.Object[], boolean)
+         * @see ccom.tsoft.core.database.jda.JDA#find(java.lang.String, java.lang.Object[], boolean)
          */
 	public List find(String sql, Object[] params, boolean autoFlush) {
         List result = null;
@@ -93,7 +93,7 @@ public class JdbcDaoImpl extends AbstractJdbcDao implements JDA {
 	}
 	
 	/* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.JDA#find(java.lang.String, java.lang.Object[], java.lang.Class, boolean, boolean)
+	 * @see ccom.tsoft.core.database.jda.JDA#find(java.lang.String, java.lang.Object[], java.lang.Class, boolean, boolean)
 	 */
 	public List find(String sql, Object[] params, Class targetBeanClass, boolean forceLowerCaseOnMapping, boolean autoFlush) {
 		List result = null;
@@ -131,7 +131,7 @@ public class JdbcDaoImpl extends AbstractJdbcDao implements JDA {
 	}    
     
     /* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.JDA#find(java.lang.String, java.lang.Object[], int[], boolean)
+	 * @see ccom.tsoft.core.database.jda.JDA#find(java.lang.String, java.lang.Object[], int[], boolean)
 	 */
 	public List find(String sql, Object[] params, int[] paramTypes, boolean autoFlush) {
 		List result = null;
@@ -165,7 +165,7 @@ public class JdbcDaoImpl extends AbstractJdbcDao implements JDA {
 	}
 	
 	/* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.JDA#find(java.lang.String, java.lang.Object[], int[], java.lang.Class, boolean, boolean)
+	 * @see ccom.tsoft.core.database.jda.JDA#find(java.lang.String, java.lang.Object[], int[], java.lang.Class, boolean, boolean)
 	 */
 	public List find(String sql, Object[] params, int[] paramTypes, Class targetBeanClass, boolean forceLowerCaseOnMapping, boolean autoFlush) {
 		List result = null;
@@ -208,7 +208,7 @@ public class JdbcDaoImpl extends AbstractJdbcDao implements JDA {
 	}
     
     /* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.JDA#find(java.lang.String, java.lang.Object[], int, int, boolean)
+	 * @see ccom.tsoft.core.database.jda.JDA#find(java.lang.String, java.lang.Object[], int, int, boolean)
 	 */
 	public List find(String sql, Object[] params, int page, int pageSize, boolean autoFlush) {
 		try
@@ -245,7 +245,7 @@ public class JdbcDaoImpl extends AbstractJdbcDao implements JDA {
 	}
 
 	/* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.JDA#find(java.lang.String, java.lang.Object[], int, int, java.lang.Class, boolean, boolean)
+	 * @see ccom.tsoft.core.database.jda.JDA#find(java.lang.String, java.lang.Object[], int, int, java.lang.Class, boolean, boolean)
 	 */
 	public List find(String sql, Object[] params, int page, int pageSize, Class targetBeanClass, boolean forceLowerCaseOnMapping, boolean autoFlush) {
 		try
@@ -293,7 +293,7 @@ public class JdbcDaoImpl extends AbstractJdbcDao implements JDA {
 	}
     
     /* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.JDA#find(java.lang.String, java.lang.Object[], int[], int, int, boolean)
+	 * @see ccom.tsoft.core.database.jda.JDA#find(java.lang.String, java.lang.Object[], int[], int, int, boolean)
 	 */
 	public List find(String sql, Object[] params, int[] paramTypes, int page, int pageSize, boolean autoFlush) {
 		if(params == null || params.length == 0)
@@ -334,7 +334,7 @@ public class JdbcDaoImpl extends AbstractJdbcDao implements JDA {
 	}
 
 	/* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.JDA#find(java.lang.String, java.lang.Object[], int[], int, int, java.lang.Class, boolean, boolean)
+	 * @see ccom.tsoft.core.database.jda.JDA#find(java.lang.String, java.lang.Object[], int[], int, int, java.lang.Class, boolean, boolean)
 	 */
 	public List find(String sql, Object[] params, int[] paramTypes, int page, int pageSize, Class targetBeanClass, boolean forceLowerCaseOnMapping, boolean autoFlush) {
 		 if(params == null || params.length == 0)
@@ -384,7 +384,7 @@ public class JdbcDaoImpl extends AbstractJdbcDao implements JDA {
 	}
 
     /* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.JDA#getInt(java.lang.String, boolean)
+	 * @see ccom.tsoft.core.database.jda.JDA#getInt(java.lang.String, boolean)
 	 */
 	public int getInt(String sql, boolean autoFlush) {
 		int result = 0;
@@ -403,7 +403,7 @@ public class JdbcDaoImpl extends AbstractJdbcDao implements JDA {
 	}
 
     /* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.JDA#getInt(java.lang.String, java.lang.Object[], boolean)
+	 * @see ccom.tsoft.core.database.jda.JDA#getInt(java.lang.String, java.lang.Object[], boolean)
 	 */
 	public int getInt(String sql, Object[] params, boolean autoFlush) {
 		if(params == null || params.length == 0)
@@ -434,7 +434,7 @@ public class JdbcDaoImpl extends AbstractJdbcDao implements JDA {
 	}
 
     /* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.JDA#getInt(java.lang.String, java.lang.Object[], int[], boolean)
+	 * @see ccom.tsoft.core.database.jda.JDA#getInt(java.lang.String, java.lang.Object[], int[], boolean)
 	 */
 	public int getInt(String sql, Object[] params, int[] paramTypes, boolean autoFlush) {
 		if(params == null || params.length == 0)
@@ -467,7 +467,7 @@ public class JdbcDaoImpl extends AbstractJdbcDao implements JDA {
 	}
 
 	/* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.JDA#getLong(java.lang.String, boolean)
+	 * @see ccom.tsoft.core.database.jda.JDA#getLong(java.lang.String, boolean)
 	 */
 	public long getLong(String sql, boolean autoFlush) {
 		long result = 0;
@@ -492,7 +492,7 @@ public class JdbcDaoImpl extends AbstractJdbcDao implements JDA {
 	}
 
     /* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.JDA#getLong(java.lang.String, java.lang.Object[], boolean)
+	 * @see ccom.tsoft.core.database.jda.JDA#getLong(java.lang.String, java.lang.Object[], boolean)
 	 */
 	public long getLong(String sql, Object[] params, boolean autoFlush) {
 		if(params == null || params.length == 0)
@@ -523,7 +523,7 @@ public class JdbcDaoImpl extends AbstractJdbcDao implements JDA {
 	}
     
     /* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.JDA#getLong(java.lang.String, java.lang.Object[], int[], boolean)
+	 * @see ccom.tsoft.core.database.jda.JDA#getLong(java.lang.String, java.lang.Object[], int[], boolean)
 	 */
 	public long getLong(String sql, Object[] params, int[] paramTypes, boolean autoFlush) {
 		if(params == null || params.length == 0)
@@ -556,7 +556,7 @@ public class JdbcDaoImpl extends AbstractJdbcDao implements JDA {
 	}
 
 	/* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.AbstractJdbcDao#getString(java.lang.String, boolean)
+	 * @see ccom.tsoft.core.database.jda.AbstractJdbcDao#getString(java.lang.String, boolean)
 	 */
 	public String getString(String sql, boolean autoFlush) {
 		String result = null;
@@ -581,7 +581,7 @@ public class JdbcDaoImpl extends AbstractJdbcDao implements JDA {
 	}
 
 	/* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.AbstractJdbcDao#getString(java.lang.String, java.lang.Object[], boolean)
+	 * @see ccom.tsoft.core.database.jda.AbstractJdbcDao#getString(java.lang.String, java.lang.Object[], boolean)
 	 */
 	public String getString(String sql, Object[] params, boolean autoFlush) {
 		if(params == null || params.length == 0)
@@ -609,7 +609,7 @@ public class JdbcDaoImpl extends AbstractJdbcDao implements JDA {
 	}
 
 	/* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.AbstractJdbcDao#getString(java.lang.String, java.lang.Object[], int[], boolean)
+	 * @see ccom.tsoft.core.database.jda.AbstractJdbcDao#getString(java.lang.String, java.lang.Object[], int[], boolean)
 	 */
 	public String getString(String sql, Object[] params, int[] paramTypes, boolean autoFlush) {
 		if(params == null || params.length == 0)
@@ -639,7 +639,7 @@ public class JdbcDaoImpl extends AbstractJdbcDao implements JDA {
 	}
 
 	/* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.JDA#getObject(java.lang.String, java.lang.Class, boolean)
+	 * @see ccom.tsoft.core.database.jda.JDA#getObject(java.lang.String, java.lang.Class, boolean)
 	 */
 	public Object getObject(String sql, Class clazz, boolean autoFlush) {
 		Object result = null;
@@ -664,7 +664,7 @@ public class JdbcDaoImpl extends AbstractJdbcDao implements JDA {
 	}
 	
     /* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.JDA#getObject(java.lang.String, java.lang.Object[], java.lang.Class, boolean)
+	 * @see ccom.tsoft.core.database.jda.JDA#getObject(java.lang.String, java.lang.Object[], java.lang.Class, boolean)
 	 */
 	public Object getObject(String sql, Object[] params, Class clazz, boolean autoFlush) {
 		if(params == null || params.length == 0)
@@ -695,7 +695,7 @@ public class JdbcDaoImpl extends AbstractJdbcDao implements JDA {
 
 
 	/* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.JDA#getObject(java.lang.String, java.lang.Object[], int[], java.lang.Class, boolean)
+	 * @see ccom.tsoft.core.database.jda.JDA#getObject(java.lang.String, java.lang.Object[], int[], java.lang.Class, boolean)
 	 */
 	public Object getObject(String sql, Object[] params, int[] paramTypes, Class clazz, boolean autoFlush) {
 		if(params == null || params.length == 0)
@@ -727,7 +727,7 @@ public class JdbcDaoImpl extends AbstractJdbcDao implements JDA {
 	}
 
 	/* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.JDA#execute(java.lang.String, boolean)
+	 * @see ccom.tsoft.core.database.jda.JDA#execute(java.lang.String, boolean)
 	 */
 	public int execute(String sql, boolean forceNoCache) throws JdaDuplicateEntryException, JdaTooBigColumnLengthException, AccessDataException {
         int result = -1;
@@ -760,7 +760,7 @@ public class JdbcDaoImpl extends AbstractJdbcDao implements JDA {
 	}
 
 	/* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.JDA#execute(java.lang.String, java.lang.Object[], boolean)
+	 * @see ccom.tsoft.core.database.jda.JDA#execute(java.lang.String, java.lang.Object[], boolean)
 	 */
 	public int execute(String sql, Object[] params, boolean forceNoCache) throws JdaDuplicateEntryException, JdaTooBigColumnLengthException, AccessDataException {
         if(params == null || params.length == 0)
@@ -796,7 +796,7 @@ public class JdbcDaoImpl extends AbstractJdbcDao implements JDA {
 	}
 
 	/* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.JDA#execute(java.lang.String, java.lang.Object[], int[], boolean)
+	 * @see ccom.tsoft.core.database.jda.JDA#execute(java.lang.String, java.lang.Object[], int[], boolean)
 	 */
 	public int execute(String sql, Object[] params, int[] paramTypes, boolean forceNoCache) throws JdaDuplicateEntryException, JdaTooBigColumnLengthException, AccessDataException {
         if(params == null || params.length == 0)
@@ -833,7 +833,7 @@ public class JdbcDaoImpl extends AbstractJdbcDao implements JDA {
 	}
 	
     /* (non-Javadoc)
-     * @see com.xiangshang360.database.jda.JDA#executeBatch(java.lang.String, java.lang.Object[][])
+     * @see ccom.tsoft.core.database.jda.JDA#executeBatch(java.lang.String, java.lang.Object[][])
      */
     public int[] executeBatch(String sql, final Object[][] params)
             throws JdaDuplicateEntryException, JdaTooBigColumnLengthException, AccessDataException {
@@ -877,7 +877,7 @@ public class JdbcDaoImpl extends AbstractJdbcDao implements JDA {
     }
     
 	/* (non-Javadoc)
-     * @see com.xiangshang360.database.jda.JDA#executeBatch(java.lang.String, java.lang.Object[][], int[][])
+     * @see ccom.tsoft.core.database.jda.JDA#executeBatch(java.lang.String, java.lang.Object[][], int[][])
      */
     public int[] executeBatch(String sql, final Object[][] params, final int[] paramTypes)
             throws JdaDuplicateEntryException, JdaTooBigColumnLengthException, AccessDataException {
@@ -921,7 +921,7 @@ public class JdbcDaoImpl extends AbstractJdbcDao implements JDA {
     }
 	
 	/* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.JDA#findCall(java.lang.String, java.lang.Object[], int[], boolean)
+	 * @see ccom.tsoft.core.database.jda.JDA#findCall(java.lang.String, java.lang.Object[], int[], boolean)
 	 */
 	public List findCall(String procName, final Object[] params, final int[] paramTypes, boolean autoFlush) {
 		checkParamsAndTypes(params, paramTypes);
@@ -999,7 +999,7 @@ public class JdbcDaoImpl extends AbstractJdbcDao implements JDA {
 	}
 
 	/* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.JDA#executeCall(java.lang.String, java.lang.Object[], int[], boolean)
+	 * @see ccom.tsoft.core.database.jda.JDA#executeCall(java.lang.String, java.lang.Object[], int[], boolean)
 	 */
 	public int executeCall(String procName, final Object[] params, final int[] paramTypes, boolean forceNoCache) throws JdaDuplicateEntryException, JdaTooBigColumnLengthException, AccessDataException {
         int result = -1;
@@ -1077,7 +1077,7 @@ public class JdbcDaoImpl extends AbstractJdbcDao implements JDA {
 	}
 
 	/* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.JDA#executeCallBatch(java.lang.String, java.lang.Object[][], int[])
+	 * @see ccom.tsoft.core.database.jda.JDA#executeCallBatch(java.lang.String, java.lang.Object[][], int[])
 	 */
 	public int[] executeCallBatch(String procName, final Object[][] params, final int[] paramTypes) throws JdaDuplicateEntryException, JdaTooBigColumnLengthException, AccessDataException {
         try

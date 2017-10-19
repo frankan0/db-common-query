@@ -7,17 +7,13 @@ package com.tsoft.core.database.dialect;
 public class MySQLDialect extends Dialect {
     private static final int ERR_CODE_DUP_ENTRY = 1062;
     private static final int ERR_CODE_TO_BIG_COLUMN_LENGTH = 1074;
-    /* (non-Javadoc)
-     * @see com.networkbench.base.database.jda.dialect.Dialect#getDialectName()
-     */
+
     public String getDialectName() {
         return "MySQL";
     }
 
     
-    /* (non-Javadoc)
-     * @see com.networkbench.base.database.jda.dialect.Dialect#getLimitString(java.lang.String, int, int)
-     */
+
 	public String getLimitString(String sql, int page, int pageSize) {
 		if( pageSize > 0 )
 		{
@@ -31,23 +27,16 @@ public class MySQLDialect extends Dialect {
 		}
 	}
     
-    /* (non-Javadoc)
-     * @see com.networkbench.base.database.jda.dialect.Dialect#getErrorCodeForDuplicateEntry()
-     */
+
     public int getErrorCodeForDuplicateEntry() {
         return ERR_CODE_DUP_ENTRY;
     }
-    /* (non-Javadoc)
-     * @see com.networkbench.base.database.jda.dialect.Dialect#getErrorCodeForTooBigColumnLength()
-     */
+
     public int getErrorCodeForTooBigColumnLength() {
         // TODO Auto-generated method stub
         return ERR_CODE_TO_BIG_COLUMN_LENGTH;
     }
 
-	/* (non-Javadoc)
-	 * @see com.networkbench.base.database.jda.dialect.Dialect#supportsLimit()
-	 */
 	public boolean supportsLimit() {
 		return true;
 	}

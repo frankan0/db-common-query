@@ -127,9 +127,6 @@ public abstract class AbstractJdbcDao extends JdbcDaoSupport implements JDA, Dis
 		this.batchSqlNum = batchSqlNum;
 	}
 
-    /* (non-Javadoc)
-     * @see org.springframework.jdbc.core.support.JdbcDaoSupport#initDao()
-     */
     protected void initDao() throws Exception {
         //设置SqlExceptionTranslator
         if(dialect == null || dialect.length() == 0)
@@ -158,10 +155,8 @@ public abstract class AbstractJdbcDao extends JdbcDaoSupport implements JDA, Dis
         }
 
     }
-    
-    /* (non-Javadoc)
-	 * @see org.springframework.beans.factory.DisposableBean#destroy()
-	 */
+
+
 	public void destroy() throws Exception {
 		if(this.sqlMapping != null) {
 			this.sqlMapping.destroy();
@@ -185,10 +180,7 @@ public abstract class AbstractJdbcDao extends JdbcDaoSupport implements JDA, Dis
 			Log.error("cannot close the connection: " + e.getMessage(), e);
 		}
 	}
-	
-	/* (non-Javadoc)
-     * @see com.xiangshang360.database.jda.JDA#getQueryString(java.lang.String)
-     */
+
     public String getQueryString(String name) {
         if(sqlMapping == null)
             return null;
@@ -201,87 +193,60 @@ public abstract class AbstractJdbcDao extends JdbcDaoSupport implements JDA, Dis
         
         return sql;
     }
-    
-    /* (non-Javadoc)
-     * @see com.xiangshang360.database.jda.JDA#createQuery(java.lang.String)
-     */
+
+
     public Query createQuery(String name) {
         return new QueryImpl(this, this.sqlMapping, name);
     }
-    
 
-	/* (non-Javadoc)
-     * @see com.xiangshang360.database.jda.JDA#find(java.lang.String)
-     */
     public List find(String sql) {
         return find(sql, true);
     }
 
-    /* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.JDA#find(java.lang.String, boolean)
-	 */
 	public List find(String sql, boolean autoFlush) {
 		return find(sql, (Object[])null, autoFlush);
 	}
 
-	/* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.JDA#find(java.lang.String, java.lang.Class)
-	 */
 	public List find(String sql, Class targetBeanClass) {
         return find(sql, targetBeanClass, false);
 	}
 	
 	
-	/* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.JDA#find(java.lang.String, java.lang.Class, boolean)
-	 */
 	public List find(String sql, Class targetBeanClass, boolean forceLowerCaseOnMapping) {
 		return find(sql, (Object[])null, targetBeanClass, forceLowerCaseOnMapping, true);
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.JDA#find(java.lang.String, java.lang.Class, boolean, boolean)
-	 */
 	public List find(String sql, Class targetBeanClass, boolean forceLowerCaseOnMapping, boolean autoFlush) {
 		return find(sql, (Object[])null, targetBeanClass, forceLowerCaseOnMapping, autoFlush);
 	}
 
-	/* (non-Javadoc)
-     * @see com.xiangshang360.database.jda.JDA#find(java.lang.String, java.lang.Object[])
-     */
     public List find(String sql, Object[] params) {
         return find(sql, params, true);
     }
     
 	/* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.JDA#find(java.lang.String, java.lang.Object[], java.lang.Class)
+	 * @see com.tsoft.core.database.jda.JDA#find(java.lang.String, java.lang.Object[], java.lang.Class)
 	 */
 	public List find(String sql, Object[] params, Class targetBeanClass) {
         return find(sql, params, targetBeanClass, false);
 	}	
 	
-	/* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.JDA#find(java.lang.String, java.lang.Object[], java.lang.Class, boolean)
-	 */
 	public List find(String sql, Object[] params, Class targetBeanClass, boolean forceLowerCaseOnMapping) {
 		return find(sql, params, targetBeanClass, forceLowerCaseOnMapping, true);
 	}
 
-	/* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.JDA#find(java.lang.String, java.lang.Object[], int[], java.lang.Class)
-	 */
 	public List find(String sql, Object[] params, int[] paramTypes, Class targetBeanClass) {
         return find(sql, params, paramTypes, targetBeanClass, false);
 	}
 	
 	/* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.JDA#find(java.lang.String, java.lang.Object[], int[], java.lang.Class, boolean)
+	 * @see com.tsoft.core.database.jda.JDA#find(java.lang.String, java.lang.Object[], int[], java.lang.Class, boolean)
 	 */
 	public List find(String sql, Object[] params, int[] paramTypes, Class targetBeanClass, boolean forceLowerCaseOnMapping) {
 		return find(sql, params, paramTypes, targetBeanClass, forceLowerCaseOnMapping, true);
 	}
 	/* (non-Javadoc)
-     * @see com.xiangshang360.database.jda.JDA#find(java.lang.String, int, int)
+     * @see com.tsoft.core.database.jda.JDA#find(java.lang.String, int, int)
      */
     public List find(String sql, int page, int pageSize) {
         return find(sql, page, pageSize, true);
@@ -289,70 +254,70 @@ public abstract class AbstractJdbcDao extends JdbcDaoSupport implements JDA, Dis
     
     
     /* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.JDA#find(java.lang.String, int, int, boolean)
+	 * @see com.tsoft.core.database.jda.JDA#find(java.lang.String, int, int, boolean)
 	 */
 	public List find(String sql, int page, int pageSize, boolean autoFlush) {
 		return find(sql, (Object[])null, page, pageSize, autoFlush);
 	}
 
 	/* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.JDA#find(java.lang.String, int, int, java.lang.Class)
+	 * @see com.tsoft.core.database.jda.JDA#find(java.lang.String, int, int, java.lang.Class)
 	 */
 	public List find(String sql, int page, int pageSize, Class targetBeanClass) {
 		return find(sql, page, pageSize, targetBeanClass, false);
 	}	
 	
 	/* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.JDA#find(java.lang.String, int, int, java.lang.Class, boolean)
+	 * @see com.tsoft.core.database.jda.JDA#find(java.lang.String, int, int, java.lang.Class, boolean)
 	 */
 	public List find(String sql, int page, int pageSize, Class targetBeanClass, boolean forceLowerCaseOnMapping) {
 		return find(sql, page, pageSize, targetBeanClass, forceLowerCaseOnMapping, true);
 	}
 	
 	/* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.JDA#find(java.lang.String, int, int, java.lang.Class, boolean, boolean)
+	 * @see com.tsoft.core.database.jda.JDA#find(java.lang.String, int, int, java.lang.Class, boolean, boolean)
 	 */
 	public List find(String sql, int page, int pageSize, Class targetBeanClass, boolean forceLowerCaseOnMapping, boolean autoFlush) {
 		return find(sql, (Object[])null, page, pageSize, targetBeanClass, forceLowerCaseOnMapping, autoFlush);
 	}
 
 	/* (non-Javadoc)
-     * @see com.xiangshang360.database.jda.JDA#find(java.lang.String, java.lang.Object[], int, int)
+     * @see com.tsoft.core.database.jda.JDA#find(java.lang.String, java.lang.Object[], int, int)
      */
     public List find(String sql, Object[] params, int page, int pageSize) {       
         return find(sql, params, page, pageSize,  true);
     }
 
 	/* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.JDA#find(java.lang.String, java.lang.Object[], int, int, java.lang.Class)
+	 * @see com.tsoft.core.database.jda.JDA#find(java.lang.String, java.lang.Object[], int, int, java.lang.Class)
 	 */
 	public List find(String sql, Object[] params, int page, int pageSize, Class targetBeanClass) {
         return find(sql, params, page, pageSize, targetBeanClass, false);
 	}
 	
 	/* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.JDA#find(java.lang.String, java.lang.Object[], int, int, java.lang.Class, boolean)
+	 * @see com.tsoft.core.database.jda.JDA#find(java.lang.String, java.lang.Object[], int, int, java.lang.Class, boolean)
 	 */
 	public List find(String sql, Object[] params, int page, int pageSize, Class targetBeanClass, boolean forceLowerCaseOnMapping) {
 		return find(sql, params, page, pageSize, targetBeanClass, forceLowerCaseOnMapping, true);
 	}
 
 	/* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.JDA#find(java.lang.String, java.lang.Object[], int[], int, int, java.lang.Class)
+	 * @see com.tsoft.core.database.jda.JDA#find(java.lang.String, java.lang.Object[], int[], int, int, java.lang.Class)
 	 */
 	public List find(String sql, Object[] params, int[] paramTypes, int page, int pageSize, Class targetBeanClass) {
 		return find(sql, params, paramTypes, page, pageSize, targetBeanClass, false);
 	}
 	
 	/* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.JDA#find(java.lang.String, java.lang.Object[], int[], int, int, java.lang.Class, boolean)
+	 * @see com.tsoft.core.database.jda.JDA#find(java.lang.String, java.lang.Object[], int[], int, int, java.lang.Class, boolean)
 	 */
 	public List find(String sql, Object[] params, int[] paramTypes, int page, int pageSize, Class targetBeanClass, boolean forceLowerCaseOnMapping) {
 		return find(sql, params, paramTypes, page, pageSize, targetBeanClass, forceLowerCaseOnMapping, true);
 	}
 	
 	/* (non-Javadoc)
-     * @see com.xiangshang360.database.jda.JDA#find(java.lang.String, java.lang.Object[], int[], int, int)
+     * @see com.tsoft.core.database.jda.JDA#find(java.lang.String, java.lang.Object[], int[], int, int)
      */
     public List find(String sql, Object[] params, int[] paramTypes, int page,
             int pageSize) {
@@ -360,28 +325,28 @@ public abstract class AbstractJdbcDao extends JdbcDaoSupport implements JDA, Dis
     }
     
 	/* (non-Javadoc)
-     * @see com.xiangshang360.database.jda.JDA#find(java.lang.String, java.lang.Object[], int[])
+     * @see com.tsoft.core.database.jda.JDA#find(java.lang.String, java.lang.Object[], int[])
      */
     public List find(String sql, Object[] params, int[] paramTypes) {
         return find(sql, params, paramTypes, true);
     }
     
 	/* (non-Javadoc)
-     * @see com.xiangshang360.database.jda.JDA#count(java.lang.String)
+     * @see com.tsoft.core.database.jda.JDA#count(java.lang.String)
      */
     public int count(String sql) {
         return count(sql, true);
     }
 
     /* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.JDA#count(java.lang.String, boolean)
+	 * @see com.tsoft.core.database.jda.JDA#count(java.lang.String, boolean)
 	 */
 	public int count(String sql, boolean autoFlush) {
 		return getInt(dbDialect.buildCountSQL(sql), autoFlush);
 	}
 
 	/* (non-Javadoc)
-     * @see com.xiangshang360.database.jda.JDA#count(java.lang.String, java.lang.Object[])
+     * @see com.tsoft.core.database.jda.JDA#count(java.lang.String, java.lang.Object[])
      */
     public int count(String sql, Object[] params) {
     	return count(sql, params, true);
@@ -389,84 +354,84 @@ public abstract class AbstractJdbcDao extends JdbcDaoSupport implements JDA, Dis
 
     
     /* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.JDA#count(java.lang.String, java.lang.Object[], boolean)
+	 * @see com.tsoft.core.database.jda.JDA#count(java.lang.String, java.lang.Object[], boolean)
 	 */
 	public int count(String sql, Object[] params, boolean autoFlush) {
 		return getInt(dbDialect.buildCountSQL(sql), params, autoFlush);
 	}
 
 	/* (non-Javadoc)
-     * @see com.xiangshang360.database.jda.JDA#count(java.lang.String, java.lang.Object[], int[])
+     * @see com.tsoft.core.database.jda.JDA#count(java.lang.String, java.lang.Object[], int[])
      */
     public int count(String sql, Object[] params, int[] paramTypes) {
         return count(sql, params, paramTypes, true);
     }
 
 	/* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.JDA#count(java.lang.String, java.lang.Object[], int[], boolean)
+	 * @see com.tsoft.core.database.jda.JDA#count(java.lang.String, java.lang.Object[], int[], boolean)
 	 */
 	public int count(String sql, Object[] params, int[] paramTypes, boolean autoFlush) {
 		return getInt(dbDialect.buildCountSQL(sql), params, paramTypes, autoFlush);
 	}
 
 	/* (non-Javadoc)
-     * @see com.xiangshang360.database.jda.JDA#getString(java.lang.String)
+     * @see com.tsoft.core.database.jda.JDA#getString(java.lang.String)
      */
     public String getString(String sql) {
         return getString(sql, true);
     }
 
     /* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.JDA#getString(java.lang.String, boolean)
+	 * @see com.tsoft.core.database.jda.JDA#getString(java.lang.String, boolean)
 	 */
 	public String getString(String sql, boolean autoFlush) {
 		return (String)getObject(sql, String.class, autoFlush);
 	}
 
 	/* (non-Javadoc)
-     * @see com.xiangshang360.database.jda.JDA#getString(java.lang.String, java.lang.Object[])
+     * @see com.tsoft.core.database.jda.JDA#getString(java.lang.String, java.lang.Object[])
      */
     public String getString(String sql, Object[] params) {
         return getString(sql, params, true);
     }
 
     /* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.JDA#getString(java.lang.String, java.lang.Object[], boolean)
+	 * @see com.tsoft.core.database.jda.JDA#getString(java.lang.String, java.lang.Object[], boolean)
 	 */
 	public String getString(String sql, Object[] params, boolean autoFlush) {
 		return (String)getObject(sql, params, String.class, autoFlush);
 	}
 
 	/* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.JDA#getString(java.lang.String, java.lang.Object[], int[])
+	 * @see com.tsoft.core.database.jda.JDA#getString(java.lang.String, java.lang.Object[], int[])
 	 */
 	public String getString(String sql, Object[] params, int[] paramTypes) {
 		return getString(sql, params, paramTypes, true);
 	}
 
 	/* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.JDA#getString(java.lang.String, java.lang.Object[], int[], boolean)
+	 * @see com.tsoft.core.database.jda.JDA#getString(java.lang.String, java.lang.Object[], int[], boolean)
 	 */
 	public String getString(String sql, Object[] params, int[] paramTypes, boolean autoFlush) {
 		return (String)getObject(sql, params, paramTypes, String.class, autoFlush);
 	}
 
 	/* (non-Javadoc)
-     * @see com.xiangshang360.database.jda.JDA#getInt(java.lang.String)
+     * @see com.tsoft.core.database.jda.JDA#getInt(java.lang.String)
      */
     public int getInt(String sql) {
         return getInt(sql, true);
     }
 
 	/* (non-Javadoc)
-     * @see com.xiangshang360.database.jda.JDA#getInt(java.lang.String, java.lang.Object[])
+     * @see com.tsoft.core.database.jda.JDA#getInt(java.lang.String, java.lang.Object[])
      */
     public int getInt(String sql, Object[] params) {        
         return getInt(sql, params, true);
     }
 
 	/* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.JDA#getInt(java.lang.String, java.lang.Object[], int[])
+	 * @see com.tsoft.core.database.jda.JDA#getInt(java.lang.String, java.lang.Object[], int[])
 	 */
 	public int getInt(String sql, Object[] params, int[] paramTypes) {
 		return getInt(sql, params, paramTypes, true);
@@ -474,56 +439,56 @@ public abstract class AbstractJdbcDao extends JdbcDaoSupport implements JDA, Dis
 
 
 	/* (non-Javadoc)
-     * @see com.xiangshang360.database.jda.JDA#getLong(java.lang.String)
+     * @see com.tsoft.core.database.jda.JDA#getLong(java.lang.String)
      */
     public long getLong(String sql) {
         return getLong(sql, true);
     }
 
 	/* (non-Javadoc)
-     * @see com.xiangshang360.database.jda.JDA#getLong(java.lang.String, java.lang.Object[])
+     * @see com.tsoft.core.database.jda.JDA#getLong(java.lang.String, java.lang.Object[])
      */
     public long getLong(String sql, Object[] params) {
         return getLong(sql, params, true);
     }
 
 	/* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.JDA#getLong(java.lang.String, java.lang.Object[], int[])
+	 * @see com.tsoft.core.database.jda.JDA#getLong(java.lang.String, java.lang.Object[], int[])
 	 */
 	public long getLong(String sql, Object[] params, int[] paramTypes) {
 		return getLong(sql, params, paramTypes);
 	}
 	
 	/* (non-Javadoc)
-     * @see com.xiangshang360.database.jda.JDA#getObject(java.lang.String)
+     * @see com.tsoft.core.database.jda.JDA#getObject(java.lang.String)
      */
     public Object getObject(String sql) {
         return getObject(sql, true);
     }
     
     /* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.JDA#getObject(java.lang.String, boolean)
+	 * @see com.tsoft.core.database.jda.JDA#getObject(java.lang.String, boolean)
 	 */
 	public Object getObject(String sql, boolean autoFlush) {
 		return getObject(sql, Object.class, autoFlush);
 	}
 
 	/* (non-Javadoc)
-     * @see com.xiangshang360.database.jda.JDA#getObject(java.lang.String, java.lang.Object[])
+     * @see com.tsoft.core.database.jda.JDA#getObject(java.lang.String, java.lang.Object[])
      */
     public Object getObject(String sql, Object[] params) {
         return getObject(sql, params, true);
     }
     
     /* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.JDA#getObject(java.lang.String, java.lang.Object[], boolean)
+	 * @see com.tsoft.core.database.jda.JDA#getObject(java.lang.String, java.lang.Object[], boolean)
 	 */
 	public Object getObject(String sql, Object[] params, boolean autoFlush) {
 		return getObject(sql, params, Object.class, autoFlush);
 	}
 
 	/* (non-Javadoc)
-     * @see com.xiangshang360.database.jda.JDA#getObject(java.lang.String, java.lang.Class)
+     * @see com.tsoft.core.database.jda.JDA#getObject(java.lang.String, java.lang.Class)
      */
     public Object getObject(String sql, Class clazz) {
         return getObject(sql, clazz, true);
@@ -531,42 +496,42 @@ public abstract class AbstractJdbcDao extends JdbcDaoSupport implements JDA, Dis
     
 
 	/* (non-Javadoc)
-     * @see com.xiangshang360.database.jda.JDA#getObject(java.lang.String, java.lang.Object[], java.lang.Class)
+     * @see com.tsoft.core.database.jda.JDA#getObject(java.lang.String, java.lang.Object[], java.lang.Class)
      */
     public Object getObject(String sql, Object[] params, Class clazz) {
         return getObject(sql, params, clazz, true);
     }
 
 	/* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.JDA#getObject(java.lang.String, java.lang.Object[], int[], java.lang.Class)
+	 * @see com.tsoft.core.database.jda.JDA#getObject(java.lang.String, java.lang.Object[], int[], java.lang.Class)
 	 */
 	public Object getObject(String sql, Object[] params, int[] paramTypes, Class clazz) {
 		return getObject(sql, params, paramTypes, clazz, true);
 	}
 
 	/* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.JDA#getObject(java.lang.String, java.lang.Object[], int[])
+	 * @see com.tsoft.core.database.jda.JDA#getObject(java.lang.String, java.lang.Object[], int[])
 	 */
 	public Object getObject(String sql, Object[] params, int[] paramTypes) {
 		return getObject(sql, params, paramTypes, true);
 	}
 	
     /* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.JDA#getObject(java.lang.String, java.lang.Object[], int[], boolean)
+	 * @see com.tsoft.core.database.jda.JDA#getObject(java.lang.String, java.lang.Object[], int[], boolean)
 	 */
 	public Object getObject(String sql, Object[] params, int[] paramTypes, boolean autoFlush) {
 		return getObject(sql, params, paramTypes, Object.class, autoFlush);
 	}
 	
 	/* (non-Javadoc)
-     * @see com.xiangshang360.database.jda.JDA#execute(java.lang.String)
+     * @see com.tsoft.core.database.jda.JDA#execute(java.lang.String)
      */
     public int execute(String sql) throws JdaDuplicateEntryException,JdaTooBigColumnLengthException, AccessDataException {
     	return execute(sql, this.sqlCache == null);
     }
 
     /* (non-Javadoc)
-     * @see com.xiangshang360.database.jda.JDA#execute(java.lang.String, java.lang.Object[])
+     * @see com.tsoft.core.database.jda.JDA#execute(java.lang.String, java.lang.Object[])
      */
     public int execute(String sql, Object[] params) throws JdaDuplicateEntryException,JdaTooBigColumnLengthException, AccessDataException {
     	return execute(sql, params, this.sqlCache == null);
@@ -574,7 +539,7 @@ public abstract class AbstractJdbcDao extends JdbcDaoSupport implements JDA, Dis
     
     
     /* (non-Javadoc)
-     * @see com.xiangshang360.database.jda.JDA#execute(java.lang.String, java.lang.Object[], int[])
+     * @see com.tsoft.core.database.jda.JDA#execute(java.lang.String, java.lang.Object[], int[])
      */
     public int execute(String sql, Object[] params, int[] paramTypes)
             throws JdaDuplicateEntryException, JdaTooBigColumnLengthException, AccessDataException{
@@ -582,77 +547,77 @@ public abstract class AbstractJdbcDao extends JdbcDaoSupport implements JDA, Dis
     }
     
 	/* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.JDA#findCall(java.lang.String)
+	 * @see com.tsoft.core.database.jda.JDA#findCall(java.lang.String)
 	 */
 	public List findCall(String procName) {
 		return findCall(procName, true);
 	}
 
 	/* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.JDA#findCall(java.lang.String, boolean)
+	 * @see com.tsoft.core.database.jda.JDA#findCall(java.lang.String, boolean)
 	 */
 	public List findCall(String procName, boolean autoFlush) {
 		return findCall(procName, null, null, autoFlush);
 	}
 
 	/* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.JDA#findCall(java.lang.String, java.lang.Object[])
+	 * @see com.tsoft.core.database.jda.JDA#findCall(java.lang.String, java.lang.Object[])
 	 */
 	public List findCall(String procName, Object[] params) {
 		return findCall(procName, params, true);
 	}
 	
     /* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.JDA#findCall(java.lang.String, java.lang.Object[], boolean)
+	 * @see com.tsoft.core.database.jda.JDA#findCall(java.lang.String, java.lang.Object[], boolean)
 	 */
 	public List findCall(String procName, Object[] params, boolean autoFlush) {
 		return findCall(procName, params, null, autoFlush);
 	}
 
 	/* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.JDA#findCall(java.lang.String, java.lang.Object[], int[])
+	 * @see com.tsoft.core.database.jda.JDA#findCall(java.lang.String, java.lang.Object[], int[])
 	 */
 	public List findCall(String procName, final Object[] params, final int[] paramTypes) {
 		return findCall(procName, params, paramTypes, true);
 	}
 
 	/* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.JDA#executeCall(java.lang.String, java.lang.Object[], int[])
+	 * @see com.tsoft.core.database.jda.JDA#executeCall(java.lang.String, java.lang.Object[], int[])
 	 */
 	public int executeCall(String procName, final Object[] params, final int[] paramTypes) throws JdaDuplicateEntryException, JdaTooBigColumnLengthException, AccessDataException {
 		return executeCall(procName, params, paramTypes, this.sqlCache == null);
 	}
 	
 	/* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.JDA#executeCall(java.lang.String, java.lang.Object[])
+	 * @see com.tsoft.core.database.jda.JDA#executeCall(java.lang.String, java.lang.Object[])
 	 */
 	public int executeCall(String procName, Object[] params) throws JdaDuplicateEntryException, JdaTooBigColumnLengthException, AccessDataException {
 		return executeCall(procName, params, null);
 	}
 	
 	/* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.JDA#executeCall(java.lang.String)
+	 * @see com.tsoft.core.database.jda.JDA#executeCall(java.lang.String)
 	 */
 	public int executeCall(String procName) throws JdaDuplicateEntryException, JdaTooBigColumnLengthException, AccessDataException {
 		return executeCall(procName, null, null);
 	}
 
 	/* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.JDA#executeCall(java.lang.String, boolean)
+	 * @see com.tsoft.core.database.jda.JDA#executeCall(java.lang.String, boolean)
 	 */
 	public int executeCall(String procName, boolean forceNoCache) throws JdaDuplicateEntryException, JdaTooBigColumnLengthException, AccessDataException {
 		return executeCall(procName, null, null, forceNoCache);
 	}
 
 	/* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.JDA#executeCall(java.lang.String, java.lang.Object[], boolean)
+	 * @see com.tsoft.core.database.jda.JDA#executeCall(java.lang.String, java.lang.Object[], boolean)
 	 */
 	public int executeCall(String procName, Object[] params, boolean forceNoCache) throws JdaDuplicateEntryException, JdaTooBigColumnLengthException, AccessDataException {
 		return executeCall(procName, null, forceNoCache);
 	}
 	
 	/* (non-Javadoc)
-	 * @see com.xiangshang360.database.jda.JDA#executeCallBatch(java.lang.String, java.lang.Object[][])
+	 * @see com.tsoft.core.database.jda.JDA#executeCallBatch(java.lang.String, java.lang.Object[][])
 	 */
 	public int[] executeCallBatch(String procName, Object[][] params) throws JdaDuplicateEntryException, JdaTooBigColumnLengthException, AccessDataException {
 		return executeCallBatch(procName, params, null);
