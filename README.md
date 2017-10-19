@@ -11,7 +11,7 @@
     public JDA commonJda(){
         JdbcDaoImpl jda = new JdbcDaoImpl();
         jda.setDataSource(masterDataSource());
-        jda.setDialect("com.xiangshang360.database.dialect.MySQLDialect");
+        jda.setDialect("com.tsoft.core.database.dialect.MySQLDialect");
         List<String> mappings = Lists.newArrayList();
         mappings.add("/sql/sql-mapping.xml");
         jda.setSqlMappingFiles(mappings.toArray(new String[1]));
