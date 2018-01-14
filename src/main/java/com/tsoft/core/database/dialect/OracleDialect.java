@@ -40,6 +40,7 @@ public class OracleDialect extends Dialect {
 		return true;
 	}
 
+	@Override
 	public String getLimitString(String sql, int page, int pageSize) {
 		if( pageSize > 0 )
 		{
@@ -47,7 +48,9 @@ public class OracleDialect extends Dialect {
 			int intStart = (page - 1)*pageSize;
 			int intEnd = intStart + pageSize;
 			pagingSelect.append("select * from ( select row_.*, rownum rownum_ from ( ");
-			pagingSelect.append(sql);
+
+			pagingSelect.append(filter(sql));
+
 			pagingSelect.append(" ) row_ where rownum <= " + intEnd + ") where rownum_ > " + intStart);
 			return pagingSelect.toString();
 		}else{

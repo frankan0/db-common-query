@@ -14,6 +14,7 @@ public class MySQLDialect extends Dialect {
 
     
 
+    @Override
 	public String getLimitString(String sql, int page, int pageSize) {
 		if( pageSize > 0 )
 		{
